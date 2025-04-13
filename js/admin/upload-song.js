@@ -33,12 +33,13 @@
                             });
                         },
                         'BeforeUpload': function (up, file) {
-                            console.log('开始上传:', file.name);
+                            window.eventHub.emit('beforeUpload')
                         },
                         'UploadProgress': function (up, file) {
                             console.log('上传中...');
                         },
                         'FileUploaded': function (up, file, info) {
+                            window.eventHub.emit('afterUpload')
                             const res = JSON.parse(info.response);
                             const sourceLink = 'http://' + up.getOption('domain') + '/' + res.key;
                             console.log('上传完成！文件链接:', sourceLink);
