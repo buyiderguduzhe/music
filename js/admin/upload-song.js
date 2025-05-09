@@ -19,7 +19,7 @@
                 var uploader = Qiniu.uploader({
                     runtimes: 'html5',
                     browse_button: self.view.find('#uploadButton'), // 使用保存的引用
-                    uptoken_url: 'http://192.168.229.1:8888/uptoken',
+                    uptoken_url: 'http://52qianduan.top/uptoken',
                     domain: 'sue1ry4xr.hn-bkt.clouddn.com',
                     get_new_uptoken: false,
                     max_file_size: '40mb',
