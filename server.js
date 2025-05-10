@@ -17,7 +17,7 @@ function generateUploadToken() {
     let { accessKey, secretKey } = config;
     var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
     var options = {
-        scope: 'music18975544029', // 替换为你的存储空间名称
+        scope: 'music985211', // 替换为你的存储空间名称
     };
     var putPolicy = new qiniu.rs.PutPolicy(options);
     return putPolicy.uploadToken(mac);
