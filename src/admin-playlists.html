@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>歌单管理页面</title>
-    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="/src/css/default.css">
 </head>
 
 <body>
@@ -25,10 +25,10 @@
     </div>
 
 
-    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
-    <script src="./js/initializers/av.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./js/admin/event-hub.js"></script>
+    <script src="/node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="/src/js/initializers/av.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/src/js/admin/event-hub.js"></script>
     <script>
         {
             let view = {
@@ -74,30 +74,6 @@
             }
             controller.init(view, model)
         }
-
-        /*var Song = AV.Object.extend('Song');
-        var song = new Song();
-        song.set('name', '33333')
-
-        var Playlist = AV.Object.extend('Playlist');
-        var playlist = new Playlist();
-        playlist.set('name', '测试标题2222');
-        playlist.set('summary', '测试简介2222');
-
-        song.set('dependent', playlist);
-
-        song.save().then((newSong) => {
-            let { id, attributes } = newSong
-            Object.assign(this.data, { id, ...attributes })
-        }, (error) => {
-            console.error(error);
-        });*/
-
-        /*playlist.save().then((newPlaylist) => {
-            console.log(newPlaylist)
-        }, (error) => {
-            console.error(error);
-        });*/
     </script>
 </body>
 
