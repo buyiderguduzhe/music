@@ -20,7 +20,7 @@
                     runtimes: 'html5',
                     browse_button: self.view.find('#uploadButton'), // 使用保存的引用
                     uptoken_url: 'http://192.168.229.1:8888/uptoken',
-                    domain: 'sw1jsegs0.hn-bkt.clouddn.com',
+                    domain: 'sw1kxsr90.hn-bkt.clouddn.com',
                     get_new_uptoken: false,
                     max_file_size: '40mb',
                     dragdrop: true,
