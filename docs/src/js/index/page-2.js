@@ -2,37 +2,52 @@
     let view = {
         el: '.page-2',
         init() {
-            this.$el = $(this.el)
+            this.$el = $(this.el);
         },
         show() {
-            console.log('here')
-            this.$el.addClass('active')
+            this.$el.addClass('active');
         },
         hide() {
-            this.$el.removeClass('active')
+            this.$el.removeClass('active');
         }
-    }
-    let model = {}
+    };
+
+    let model = {};
+
     let controller = {
+        // 添加了 moduleLoaded 标志位
+        moduleLoaded: false,
+
         init(view, model) {
-            this.view = view
-            this.view.init()
-            this.model = model
-            this.bindEventHub()
+            this.view = view;
+            this.view.init();
+            this.model = model;
+            this.bindEventHub();
         },
+
         bindEventHub() {
             window.eventHub.on('selectTab', (tabName) => {
-                console.log('1')
-                console.log(tabName)
                 if (tabName === 'page-2') {
-                    this.view.show()
+                    this.view.show();
+                    if (!this.moduleLoaded) {
+                        this.loadModule();
+                    }
                 } else {
-                    this.view.hide()
+                    this.view.hide();
                 }
-            })
+            });
+        },
+
+        loadModule() {
+            let script = document.createElement('script');
+            script.src = 'src/js/index/page-2-1.js';
+            script.onload = () => {
+                console.log('page-2-1.js 加载完毕');
+                this.moduleLoaded = true; // 模块加载后设置标志位
+            };
+            document.body.appendChild(script);
         }
+    };
 
-    }
-    controller.init(view, model)
+    controller.init(view, model);
 }
-
