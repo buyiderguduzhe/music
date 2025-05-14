@@ -35,3 +35,4 @@
     }
     controller.init(view, model)
 }
+
