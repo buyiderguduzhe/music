@@ -20,6 +20,12 @@
                 </div>
                 <div class="row">
                     <label>
+                    歌单
+                    </label>
+                    <input name="playlist" type="text" value="--playlist--">
+                </div>
+                <div class="row">
+                    <label>
                     外链
                     </label>
                     <input name="url" type="text" value="--url--">
@@ -42,7 +48,7 @@
             </form>
             `,
         render(data = {}) {
-            let placeholders = ['name', 'url', 'singer', 'id', 'cover', 'lyrics']
+            let placeholders = ['name', 'url', 'singer', 'id', 'cover', 'lyrics', 'playlist']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`--${string}--`, data[string] || '')
@@ -60,7 +66,7 @@
     }
     let model = {
         data: {
-            name: '', singer: '', url: '', id: '', cover: '', lyrics: '',
+            name: '', singer: '', url: '', id: '', cover: '', lyrics: '', playlist: '',
         },
         update(data) {
             var song = AV.Object.createWithoutData('Song', this.data.id);
@@ -69,6 +75,7 @@
             song.set('lyrics', data.lyrics);
             song.set('url', data.url);
             song.set('cover', data.cover);
+            song.set('playlist', data.playlist);
             return song.save().then((response) => {
                 Object.assign(this.data, data); // 更新数据模型
                 return response;             // 返回更新后的歌曲对象
@@ -82,6 +89,7 @@
             song.set('lyrics', data.lyrics);
             song.set('url', data.url);
             song.set('cover', data.cover);
+            song.set('playlist', data.playlist);
             return song.save().then((newSong) => {
                 let { id, attributes } = newSong
                 Object.assign(this.data, { id, ...attributes })
@@ -104,7 +112,7 @@
             window.eventHub.on('new', (data) => {
                 if (this.model.data.id) {
                     this.model.data = {
-                        name: '', url: '', id: '', singer: '', lyrics: ''
+                        name: '', url: '', id: '', singer: '', lyrics: '', playlist: '',
                     }
                 } else {
                     Object.assign(this.model.data, data)
@@ -113,7 +121,7 @@
             })
         },
         create() {
-            let needs = 'name singer url cover lyrics'.split(' ')
+            let needs = 'name singer url cover lyrics playlist'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
@@ -127,7 +135,7 @@
                 })
         },
         update() {
-            let needs = 'name singer url cover lyrics'.split(' ')
+            let needs = 'name singer url cover lyrics playlist'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
