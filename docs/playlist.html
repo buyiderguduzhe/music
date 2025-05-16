@@ -10,9 +10,74 @@
 </head>
 
 <body>
-    <section class="songs">
-        <ol class="list"></ol>
-    </section>
+
+    <style>
+        /* 歌单头部 */
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            /* 半透明白色背景 */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* 白色背景带有80%的透明度 */
+            /* 如果需要更现代化的效果，可以添加模糊滤镜 */
+            backdrop-filter: blur(10px);
+            /* 模糊背景 */
+            -webkit-backdrop-filter: blur(10px);
+            /* 兼容Safari浏览器 */
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            /* 边框颜色稍微淡化 */
+            margin-bottom: 20px;
+        }
+
+        .playlist-cover {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .playlist-introduction {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 歌单列表标题 */
+        section.songs>h3 {
+            font-size: 1.5em;
+            /* 或者你喜欢的大小 */
+            color: #D43C33;
+            /* 使用品牌红色 */
+            margin-bottom: 20px;
+            /* 给下面的内容留出空间 */
+            padding-left: 10px;
+            /* 如果需要的话可以加一些内边距 */
+            border-left: 5px solid #D43C33;
+            /* 可选：添加左侧边框强调 */
+        }
+    </style>
+
+    <main class="page-content">
+        <!-- 歌单头部 -->
+        <div class="playlist-header">
+            <img id="playlistCover" src="" alt="歌单封面" class="playlist-cover" />
+            <div id="playlistIntroduction" class="playlist-introduction">
+                歌单简介加载中...
+            </div>
+        </div>
+
+        <!-- 歌曲列表 -->
+        <section class="songs">
+            <h3>歌单列表</h3>
+            <ol class="list">
+                <!-- 歌曲将动态插入到这里 -->
+            </ol>
+        </section>
+    </main>
 
     <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
     <script src="libs/av-min.js"></script>
