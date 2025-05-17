@@ -264,3 +264,70 @@ section.art .copyright {
     color: #888;
     transform: scale(.75);
 }
+
+
+
+
+
+/* 搜索输入框和建议框的作用域样式 */
+.page-3 {
+    margin-top: 20px;
+    /* 调整此值以增加与顶部的距离 */
+    border: none;
+    /* 确保没有边框 */
+    outline: none;
+    /* 移除聚焦时的轮廓 */
+}
+
+.page-3 #searchInput {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background-color: #EBECEC;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+/* 聚焦时添加轻微阴影 */
+.page-3 #searchInput:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+/* 使用SVG图标代替emoji作为搜索图标，并将其定位 */
+.page-3 .search-icon {
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    font-size: 18px;
+    color: #888;
+    pointer-events: none;
+}
+
+/* 建议下拉框样式 */
+.page-3 .suggestions {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: none;
+    /* 确保没有边框 */
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    margin-top: 5px;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 单个建议项样式 */
+.page-3 .suggestion-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.page-3 .suggestion-item:hover {
+    background-color: #f5f5f5;
+}
